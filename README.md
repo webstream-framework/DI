@@ -48,7 +48,8 @@ $obj = new Sample();
 $obj->strictInject('value', new SampleValue());
 echo $obj->getValue(); // Return value is instance of SampleValue class.
 ```
-Thrown `AnnotationException` exception when specified the difference value type.
+Thrown `AnnotationException` exception when specified the difference value type.  
+However, the primitive values (int, string, bool etc.) can not be strict value inject.
 
 ## License
 Licensed under the MIT
