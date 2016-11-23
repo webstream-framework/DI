@@ -78,4 +78,16 @@ class InjectorTest extends \PHPUnit_Framework_TestCase
         $injectValue = new Sample2();
         $object->strictInject('value', $injectValue);
     }
+
+    /**
+     * 異常系
+     * NULL値を注入しようとした場合、例外が発生すること
+     * @test
+     * @expectedException WebStream\Exception\Extend\AnnotationException
+     */
+    public function ngNullStrictInject()
+    {
+        $object = new StrictInjected();
+        $object->strictInject('value', null);
+    }
 }
