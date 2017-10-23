@@ -18,11 +18,10 @@ filter:
 tools:
     external_code_coverage:
         timeout: 2400
+    php_sim: true
+    php_cpd: false
     php_code_coverage:
         enabled: false
-    php_cpd:
-        excluded_dirs:
-            - Test
     php_cs_fixer:
         config:
             level: psr2
