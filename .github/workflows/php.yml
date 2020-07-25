@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        submodules: 'git@github.com:webstream-framework/Container.git'
     - uses: nanasess/setup-php@master
       with:
         php-version: '7.4'
