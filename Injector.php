@@ -1,4 +1,5 @@
 <?php
+
 namespace WebStream\DI;
 
 use WebStream\Container\Container;
@@ -16,7 +17,7 @@ trait Injector
     /**
      * @var Container プロパティコンテナ
      */
-    private $__propertyContainer;
+    private $propertyContainer;
 
     /**
      * オブジェクトを注入する
@@ -66,10 +67,10 @@ trait Injector
      */
     public function __set($name, $value)
     {
-        if ($this->__propertyContainer === null) {
-            $this->__propertyContainer = new Container(false);
+        if ($this->propertyContainer === null) {
+            $this->propertyContainer = new Container(false);
         }
-        $this->__propertyContainer->{$name} = $value;
+        $this->propertyContainer->{$name} = $value;
     }
 
     /**
@@ -77,7 +78,7 @@ trait Injector
      */
     public function __get($name)
     {
-        return $this->__propertyContainer !== null ? $this->__propertyContainer->{$name} : null;
+        return $this->propertyContainer !== null ? $this->propertyContainer->{$name} : null;
     }
 
     /**
@@ -85,7 +86,7 @@ trait Injector
      */
     public function __isset($name)
     {
-        return $__propertyContainer === null || $__propertyContainer->{$name} === null;
+        return $this->propertyContainer === null || $this->propertyContainer->{$name} === null;
     }
 
     /**
@@ -93,7 +94,7 @@ trait Injector
      */
     public function __unset($name)
     {
-        $this->__propertyContainer->remove($name);
+        $this->propertyContainer->remove($name);
     }
 
     /**
@@ -101,6 +102,6 @@ trait Injector
      */
     public function __clear()
     {
-        $this->__propertyContainer = null;
+        $this->propertyContainer = null;
     }
 }
