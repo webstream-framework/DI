@@ -71,10 +71,10 @@ class InjectorTest extends \PHPUnit\Framework\TestCase
      * 異常系
      * 定義された型と注入する型が不一致の場合、例外が発生すること
      * @test
-     * @expectedException WebStream\Exception\Extend\AnnotationException
      */
     public function ngMismatchTypeStrictInject()
     {
+        $this->expectException(\WebStream\Exception\Extend\AnnotationException::class);
         $object = new StrictInjected();
         $injectValue = new Sample2();
         $object->strictInject('value', $injectValue);
@@ -84,10 +84,10 @@ class InjectorTest extends \PHPUnit\Framework\TestCase
      * 異常系
      * NULL値を注入しようとした場合、例外が発生すること
      * @test
-     * @expectedException WebStream\Exception\Extend\AnnotationException
      */
     public function ngNullStrictInject()
     {
+        $this->expectException(\WebStream\Exception\Extend\AnnotationException::class);
         $object = new StrictInjected();
         $object->strictInject('value', null);
     }
