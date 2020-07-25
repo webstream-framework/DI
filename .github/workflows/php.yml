@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        submodules: 'git@github.com:webstream-framework/Container.git'
+        submodules: 'true'
     - uses: nanasess/setup-php@master
       with:
         php-version: '7.4'
