@@ -1,0 +1,15 @@
+version: '3'
+services:
+  webstream-framework-di:
+    build: ./
+    image: webstream-framework/di
+    container_name: webstream-framework-di
+    volumes:
+        - ./:/workspace
+    working_dir: /workspace
+    tty: true
+    networks:
+      - webstream_framework
+networks:
+  webstream_framework:
+    external: true
