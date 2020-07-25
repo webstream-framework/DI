@@ -1,0 +1,4 @@
+[submodule "Modules/Container"]
+	path = Modules/Container
+	url = git@github.com:webstream-framework/Container.git
+	branch = master

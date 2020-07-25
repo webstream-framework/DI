@@ -1,4 +1,5 @@
 <?php
+
 namespace WebStream\DI\Test;
 
 require_once dirname(__FILE__) . '/../../Injector.php';
