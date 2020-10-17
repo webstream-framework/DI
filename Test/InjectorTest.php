@@ -2,6 +2,8 @@
 
 namespace WebStream\DI\Test;
 
+use PHPUnit\Framework\TestCase;
+
 require_once dirname(__FILE__) . '/../Modules/Container/Container.php';
 require_once dirname(__FILE__) . '/../Modules/AnnotationException.php';
 require_once dirname(__FILE__) . '/Fixtures/Injected.php';
@@ -13,7 +15,7 @@ require_once dirname(__FILE__) . '/Fixtures/StrictInjected.php';
  * @since 2016/09/11
  * @version 0.7
  */
-class InjectorTest extends \PHPUnit\Framework\TestCase
+class InjectorTest extends TestCase
 {
     /**
      * 正常系
@@ -24,7 +26,7 @@ class InjectorTest extends \PHPUnit\Framework\TestCase
     {
         $object = new Injected();
         $object->inject('key', 'value');
-        $this->assertEquals($object->getValue("key"), "value");
+        $this->assertEquals("value", $object->getValue("key"));
     }
 
     /**

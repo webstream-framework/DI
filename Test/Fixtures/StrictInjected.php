@@ -25,10 +25,10 @@ class StrictInjected
     /**
      * @var Sample1
      */
-    private $value;
+    private Sample1 $value;
 
     public function getValue()
     {
-        return $this->value;
+        return $this->value ?? null;
     }
 }
