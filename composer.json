@@ -1,6 +1,6 @@
 {
     "require": {
-        "php-di/phpdoc-reader": "2.1.*",
-        "phpunit/phpunit": "9.*"
+        "php-di/phpdoc-reader": "2.2.*",
+        "phpunit/phpunit": "9.4.*"
     }
 }

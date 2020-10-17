@@ -2,9 +2,9 @@
 
 namespace WebStream\DI;
 
+use PhpDocReader\PhpDocReader;
 use WebStream\Container\Container;
 use WebStream\Exception\Extend\AnnotationException;
-use PhpDocReader\PhpDocReader;
 
 /**
  * Injector
@@ -17,7 +17,7 @@ trait Injector
     /**
      * @var Container プロパティコンテナ
      */
-    private $propertyContainer;
+    private Container $propertyContainer;
 
     /**
      * オブジェクトを注入する
@@ -37,6 +37,7 @@ trait Injector
      * @param string プロパティ名
      * @param mixed オブジェクト
      * @return Injector
+     * @throws WebStream\Exception\Extend\AnnotationException
      */
     public function strictInject(string $name, $object)
     {
@@ -64,10 +65,12 @@ trait Injector
 
     /**
      * overload setter
+     * @param mixed $name
+     * @param mixed $value
      */
     public function __set($name, $value)
     {
-        if ($this->propertyContainer === null) {
+        if (!isset($this->propertyContainer)) {
             $this->propertyContainer = new Container(false);
         }
         $this->propertyContainer->{$name} = $value;
@@ -75,6 +78,8 @@ trait Injector
 
     /**
      * overload setter
+     * @param mixed $name
+     * @return mixed|null
      */
     public function __get($name)
     {
@@ -83,6 +88,8 @@ trait Injector
 
     /**
      * overload isset
+     * @param mixed $name
+     * @return bool
      */
     public function __isset($name)
     {
@@ -91,6 +98,7 @@ trait Injector
 
     /**
      * overload unset
+     * @param mixed $name
      */
     public function __unset($name)
     {
